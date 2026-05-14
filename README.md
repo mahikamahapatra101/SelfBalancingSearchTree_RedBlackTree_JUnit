@@ -13,6 +13,3 @@ A generic Red-Black Tree in Java guaranteeing O(log n) search and insertion.
 
 ## Testing
 JUnit 5 tests cover insertions, rotations, and edge cases to verify all balancing logic.
-
-## Course
-Built for CS 400 at UW-Madison.
