@@ -1,15 +1,33 @@
 # Self-Balancing Search Tree — Red-Black Tree
 
-A generic Red-Black Tree in Java guaranteeing O(log n) search and insertion.
+A generic Red-Black Tree in Java powering a game record leaderboard —
+filtering, ranking, and retrieval all in O(log n).
 
-## How It Works
-- Automatically handles node rotations and color adjustments during insertion
-- Uses Java generics to work with any object type
-- Strict RBT invariants maintained at all times
+## What it does
 
-## Tech Stack
+- **Leaderboard from CSV data** — loads game records from a CSV file and
+  stores them in a Red-Black Tree for efficient ranked access
+- **Rich filtering** — filter by level range, min/max level, playtime,
+  or number of records returned
+- **Live record submission** — insert new game records at runtime; the
+  tree rebalances automatically to maintain sorted order
+- **O(log n) performance** — all insertion, search, and retrieval
+  operations are guaranteed logarithmic via strict RBT invariants
+
+## How it works
+
+Uses Java generics so the tree can store any `Comparable` type. During
+insertion, the tree automatically applies rotations and recoloring to
+keep depth balanced. Game records are keyed by level, making range
+queries a natural tree traversal.
+
+## Tech stack
+
 - Java
 - JUnit 5
 
 ## Testing
-JUnit 5 tests cover insertions, rotations, and edge cases to verify all balancing logic.
+
+JUnit 5 tests cover CSV ingestion, single/bulk insertions, left/right
+rotations, and all filter combinations — verifying both correctness and
+tree structure invariants after each operation.
